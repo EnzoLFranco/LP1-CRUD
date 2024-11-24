@@ -1,11 +1,12 @@
-package com.example.lp1;
+package com.example.lp1.controllers;
 
+import com.example.lp1.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
-public class CarroController extends HelloController{
+public class CarroController extends HelloController {
     private String placa;
     private String marca;
     private String modelo;

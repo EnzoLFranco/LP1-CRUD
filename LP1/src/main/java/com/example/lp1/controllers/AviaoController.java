@@ -1,11 +1,12 @@
-package com.example.lp1;
+package com.example.lp1.controllers;
 
+import com.example.lp1.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
-public class AviaoController extends HelloController{
+public class AviaoController extends HelloController {
     private int numeroSerie;
     private String fabricante;
     private String modelo;

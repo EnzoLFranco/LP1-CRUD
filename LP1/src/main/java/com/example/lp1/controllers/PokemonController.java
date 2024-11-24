@@ -1,11 +1,12 @@
-package com.example.lp1;
+package com.example.lp1.controllers;
 
+import com.example.lp1.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
-public class PokemonController extends HelloController{
+public class PokemonController extends HelloController {
     private int numeroPokedex;
     private String nome;
     private String tipos;

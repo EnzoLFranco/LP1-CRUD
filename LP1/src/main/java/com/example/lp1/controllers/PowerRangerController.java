@@ -1,11 +1,12 @@
-package com.example.lp1;
+package com.example.lp1.controllers;
 
+import com.example.lp1.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
-public class PowerRangerController extends HelloController{
+public class PowerRangerController extends HelloController {
     private String nome;
     private String corUniforme;
     private String zord;

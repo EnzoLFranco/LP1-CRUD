@@ -1,5 +1,6 @@
-package com.example.lp1;
+package com.example.lp1.controllers;
 
+import com.example.lp1.HelloController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
