@@ -1,0 +1,55 @@
+.root {
+    -fx-background-color: #E3D9B5;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 20;
+}
+
+
+
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-border-color: #CCCCCC;
+    -fx-border-radius: 5px;
+    -fx-padding: 7;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 250px;
+}
+
+#buttonMetodo1, #buttonMetodo2, #buttonMetodo3, #button {
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5px;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+#buttonMetodo1:hover, #buttonMetodo2:hover, #buttonMetodo3:hover, #button:hover {
+    -fx-background-color: #333333;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+#buttonMetodo1:pressed, #buttonMetodo2:pressed, #buttonMetodo3:pressed, #button:pressed {
+    -fx-background-color: #555555;
+}
+
+.root {
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 20;
+}
+
+.stage {
+    -fx-background-color: #EAEAEA;
+}

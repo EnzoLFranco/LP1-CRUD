@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lp1.HelloController">
+   <children>
+      <Button fx:id="button" layoutX="524.0" layoutY="371.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="-10.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" width="626.0" />
+      <Text fx:id="titleLabel" fill="WHITE" layoutX="82.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-Escolha uma das classes para testar os métodos-">
+         <font>
+            <Font name="Bell MT" size="22.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BEIGE" height="88.0" layoutX="-8.0" layoutY="27.0" stroke="WHITE" strokeType="INSIDE" width="620.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TAN" height="287.0" layoutX="194.0" layoutY="113.0" stroke="WHITE" strokeType="INSIDE" width="208.0" />
+      <VBox alignment="TOP_CENTER" layoutX="213.0" layoutY="116.0" prefHeight="285.0" prefWidth="174.0" style="-fx-spacing: 10;">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Classes disponiveis:" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ANIMAIS" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AVIÕES" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CARROS" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="INSTRUMENTOS DE CORDA" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ROUPAS" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="POKÉMONS" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="VIDEO-GAMES" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="POWER RANGERS" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PLANETAS DO SISTEMA SOLAR" textAlignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APARELHOS ELETRÔNICOS" textAlignment="CENTER" />
+         </children>
+      </VBox>
+      <Pane layoutX="-4.0" layoutY="27.0" prefHeight="47.0" prefWidth="610.0">
+         <children>
+            <Button layoutX="5.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaAnimais" styleClass="button" text="Animais" />
+            <Button layoutX="71.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaAviões" styleClass="button" text="Aviões" />
+            <Button layoutX="130.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaCarros" styleClass="button" text="Carros" />
+            <Button layoutX="187.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaInstrumentos" styleClass="button" text="Instrumentos" />
+            <Button layoutX="279.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaRoupas" styleClass="button" text="Roupas" />
+            <Button layoutX="343.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaPokemons" styleClass="button" text="Pokémons" />
+            <Button layoutX="423.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaVideoGames" styleClass="button" text="Video-games" />
+            <Button layoutX="518.0" layoutY="12.0" mnemonicParsing="false" onAction="#trocaPowerRangers" prefHeight="25.0" prefWidth="95.0" styleClass="button" text="Power Rangers" />
+            <Button layoutX="313.0" layoutY="49.0" mnemonicParsing="false" onAction="#trocaPlanetas" styleClass="button" text="Planetas" />
+            <Button layoutX="230.0" layoutY="49.0" mnemonicParsing="false" onAction="#trocaAparelhos" styleClass="button" text="Aparelhos" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

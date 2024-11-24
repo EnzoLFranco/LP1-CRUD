@@ -1,0 +1,38 @@
+.root {
+    -fx-background-color: #E3D9B5;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 20;
+}
+
+.label {
+    -fx-text-fill: #2E2E2E;
+    -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-padding: 5 0;
+}
+
+.button {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.button:hover {
+    -fx-background-color: #333;
+}
+
+.button:pressed {
+    -fx-background-color: #555;
+}
+
+#buttonMetodo1, #buttonMetodo2, #buttonMetodo3 {
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+}
