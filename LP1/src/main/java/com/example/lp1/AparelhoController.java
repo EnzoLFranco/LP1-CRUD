@@ -1,6 +1,5 @@
-package com.example.lp1.controllers;
+package com.example.lp1;
 
-import com.example.lp1.HelloController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
