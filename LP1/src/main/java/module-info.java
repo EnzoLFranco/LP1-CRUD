@@ -10,6 +10,4 @@ module com.example.lp1 {
 
     opens com.example.lp1 to javafx.fxml;
     exports com.example.lp1;
-    exports com.example.lp1.controllers;
-    opens com.example.lp1.controllers to javafx.fxml;
 }
