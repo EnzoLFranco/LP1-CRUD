@@ -5,6 +5,12 @@ public class AnimalModel {
     private String nome;
     private String especie;
 
+    public AnimalModel(int IDAnimal, String nome, String especie) {
+        this.IDAnimal = IDAnimal;
+        this.nome = nome;
+        this.especie = especie;
+    }
+
     public int getIDAnimal() {
         return IDAnimal;
     }
