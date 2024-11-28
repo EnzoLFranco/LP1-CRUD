@@ -5,6 +5,12 @@ public class PlanetaModel {
     private float raio;
     private String massa;
 
+    public PlanetaModel(String nome, Float raio, String massa){
+        this.nome = nome;
+        this.raio = raio;
+        this.massa = massa;
+    }
+
     public String getNome() {
         return nome;
     }
