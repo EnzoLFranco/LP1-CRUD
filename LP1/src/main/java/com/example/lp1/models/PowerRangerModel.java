@@ -5,6 +5,12 @@ public class PowerRangerModel {
     private String corUniforme;
     private String zord;
 
+    public PowerRangerModel(String nome, String corUniforme, String zord){
+        this.nome = nome;
+        this.corUniforme = corUniforme;
+        this.zord = zord;
+    }
+
     public String getNome() {
         return nome;
     }
