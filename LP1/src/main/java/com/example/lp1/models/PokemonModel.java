@@ -5,6 +5,12 @@ public class PokemonModel {
     private String nome;
     private String tipos;
 
+    public PokemonModel(int numeroPokedex, String nome, String tipos){
+        this.numeroPokedex = numeroPokedex;
+        this.nome = nome;
+        this.tipos = tipos;
+    }
+
     public int getNumeroPokedex() {
         return numeroPokedex;
     }
