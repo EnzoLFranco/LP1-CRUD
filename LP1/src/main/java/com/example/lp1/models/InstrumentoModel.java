@@ -5,6 +5,12 @@ public class InstrumentoModel {
     private String nome;
     private int numeroCordas;
 
+    public InstrumentoModel(int IDInstrumento, String nome, int numeroCordas){
+        this.IDInstrumento = IDInstrumento;
+        this.nome = nome;
+        this.numeroCordas = numeroCordas;
+    }
+
     public int getIDInstrumento() {
         return IDInstrumento;
     }
