@@ -9,5 +9,6 @@ module com.example.lp1 {
     requires java.sql;
 
     opens com.example.lp1 to javafx.fxml;
+    opens com.example.lp1.models to javafx.base;
     exports com.example.lp1;
 }
