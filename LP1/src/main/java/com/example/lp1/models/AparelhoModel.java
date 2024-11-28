@@ -5,6 +5,12 @@ public class AparelhoModel {
     private String marca;
     private String tipo;
 
+    public AparelhoModel(int numeroSerie, String marca, String tipo){
+        this.numeroSerie = numeroSerie;
+        this.tipo = tipo;
+        this.marca = marca;
+    }
+
     public int getNumeroSerie() {
         return numeroSerie;
     }
