@@ -5,6 +5,12 @@ public class AviaoModel {
     private String fabricante;
     private String modelo;
 
+    public AviaoModel(int numeroSerie, String fabricante, String modelo){
+        this.numeroSerie = numeroSerie;
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+    }
+
     public int getNumeroSerie() {
         return numeroSerie;
     }
