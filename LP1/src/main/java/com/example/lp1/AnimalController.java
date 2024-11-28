@@ -1,10 +1,12 @@
 package com.example.lp1;
 
 import com.example.lp1.helpers.DatabaseConnection;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
@@ -22,7 +24,19 @@ public class AnimalController extends HelloController {
     @FXML
     private Label info;
     @FXML
+    private TextField nomeInput;
+    @FXML
+    private TextField racaoInput;
+    @FXML
+    private TextField distaciaInput;
+    @FXML
     private TableView<AnimalModel> tableView;
+    @FXML
+    private TableColumn<AnimalModel, Integer> idColumn;
+    @FXML
+    private TableColumn<AnimalModel, String> nomeColumn;
+    @FXML
+    private TableColumn<AnimalModel, String> especieColumn;
 
     public int getIDAnimal() {
         return IDAnimal;
@@ -44,19 +58,13 @@ public class AnimalController extends HelloController {
     }
 
     public void initialize() {
-        TableColumn<AnimalModel, Integer> idColumn = new TableColumn<>("ID");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("IDAnimal"));
-
-        TableColumn<AnimalModel, String> nomeColumn = new TableColumn<>("Nome");
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
-
-        TableColumn<AnimalModel, String> especieColumn = new TableColumn<>("Espécie");
         especieColumn.setCellValueFactory(new PropertyValueFactory<>("especie"));
-
-        tableView.getColumns().addAll(idColumn, nomeColumn, especieColumn);
 
         carregarTabela();
     }
+
 
     private void carregarTabela() {
         List<AnimalModel> animais = getAnimaisDoBanco();
@@ -67,7 +75,7 @@ public class AnimalController extends HelloController {
 
     private List<AnimalModel> getAnimaisDoBanco() {
         List<AnimalModel> animais = new ArrayList<>();
-        String sql = "SELECT * FROM animais";
+        String sql = "SELECT * FROM Animal";
 
         try (Connection conn = DatabaseConnection.getConnection();
              ResultSet rs = conn.createStatement().executeQuery(sql)) {
@@ -77,8 +85,9 @@ public class AnimalController extends HelloController {
                 String nome = rs.getString("nome");
                 String especie = rs.getString("especie");
 
-                AnimalModel animal = new AnimalModel(id, nome, especie);
+                System.out.println("Animal encontrado: ID = " + id + ", Nome = " + nome + ", Espécie = " + especie);
 
+                AnimalModel animal = new AnimalModel(id, nome, especie);
                 animais.add(animal);
             }
 
@@ -87,5 +96,20 @@ public class AnimalController extends HelloController {
         }
 
         return animais;
+    }
+
+    public void andar(ActionEvent event){
+        nome = nomeInput.getText();
+        int distancia = Integer.parseInt(distaciaInput.getText());
+        info.setText(nome + " andou " + distancia + " metros.");
+    }
+    public void comer(ActionEvent event){
+        nome = nomeInput.getText();
+        String comida = racaoInput.getText();
+        info.setText(nome + " comeu " + comida + "!");
+    }
+    public void dormir(ActionEvent event){
+        nome = nomeInput.getText();
+        info.setText(nome + " está dormindo!");
     }
 }
