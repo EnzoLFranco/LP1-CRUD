@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -46,10 +48,17 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Label fx:id="info" layoutX="10.0" layoutY="262.0" prefHeight="35.0" prefWidth="600.0" text="Bem-Vindo a classe Power Rangers!">
+      <Label fx:id="info" layoutX="10.0" layoutY="52.0" prefHeight="35.0" prefWidth="600.0" text="Bem-Vindo a classe Power Rangers!">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <TableView fx:id="tableView" layoutX="66.0" layoutY="239.0" prefHeight="200.0" prefWidth="422.0">
+        <columns>
+          <TableColumn fx:id="nomeColumn" prefWidth="113.0" text="Nome" />
+          <TableColumn fx:id="corColumn" prefWidth="159.0" text="Cor do Uniforme" />
+            <TableColumn fx:id="zordColumn" prefWidth="149.0" text="Zord" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
