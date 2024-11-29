@@ -1,9 +1,20 @@
 package com.example.lp1;
 
+import com.example.lp1.helpers.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import com.example.lp1.models.PowerRangerModel;
 
 public class PowerRangerController extends HelloController {
     private String nome;
@@ -18,6 +29,14 @@ public class PowerRangerController extends HelloController {
     private TextField corInput;
     @FXML
     private TextField zordInput;
+    @FXML
+    private TableView<PowerRangerModel> tableView;
+    @FXML
+    private TableColumn<PowerRangerModel, String> nomeColumn;
+    @FXML
+    private TableColumn<PowerRangerModel, String> corColumn;
+    @FXML
+    private TableColumn<PowerRangerModel, String> zordColumn;
 
     public String getNome() {
         return nome;
@@ -36,6 +55,43 @@ public class PowerRangerController extends HelloController {
     }
     public void setZord(String zord) {
         this.zord = zord;
+    }
+
+    public void initialize() {
+        nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        corColumn.setCellValueFactory(new PropertyValueFactory<>("corUniforme"));
+        zordColumn.setCellValueFactory(new PropertyValueFactory<>("zord"));
+
+        carregarTabela();
+    }
+
+    private void carregarTabela() {
+        List<PowerRangerModel> powerRangers = getPowerRangersDoBanco();
+
+        tableView.getItems().clear();
+        tableView.getItems().addAll(powerRangers);
+    }
+
+    private List<PowerRangerModel> getPowerRangersDoBanco() {
+        List<PowerRangerModel> powerRangers = new ArrayList<>();
+        String sql = "SELECT * FROM PowerRanger";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             ResultSet rs = conn.createStatement().executeQuery(sql)) {
+
+            while (rs.next()) {
+                String nome = rs.getString("nome");
+                String corUniforme = rs.getString("corUniforme");
+                String zord = rs.getString("zord");
+                PowerRangerModel powerRanger = new PowerRangerModel(nome, corUniforme, zord);
+                powerRangers.add(powerRanger);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return powerRangers;
     }
 
     public void morfar(ActionEvent event) {
