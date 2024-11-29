@@ -1,9 +1,17 @@
 package com.example.lp1.models;
 
+import com.mysql.cj.util.DnsSrv;
+
 public class VideoGameModel {
     private String nome;
     private String genero;
     private int classificacaoEtaria;
+
+    public VideoGameModel(String nome, String genero, int classificacaoEtaria){
+        this.nome = nome;
+        this.genero = genero;
+        this.classificacaoEtaria = classificacaoEtaria;
+    }
 
     public String getNome() {
         return nome;
