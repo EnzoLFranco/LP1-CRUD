@@ -5,6 +5,12 @@ public class RoupaModel {
     private String tipo;
     private String tamanho;
 
+    public RoupaModel(int IDRoupa, String tipo, String tamanho){
+        this.IDRoupa = IDRoupa;
+        this.tipo = tipo;
+        this.tamanho = tamanho;
+    }
+
     public int getIDRoupa() {
         return IDRoupa;
     }
