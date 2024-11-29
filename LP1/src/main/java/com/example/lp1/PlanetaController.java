@@ -79,9 +79,6 @@ public class PlanetaController extends HelloController {
                 String nome = rs.getString("nome");
                 Float raio = rs.getFloat("raio");
                 String massa = rs.getString("massa");
-
-                System.out.println("Planeta encontrado: Nome = " + nome + ", Raio = " + raio + ", Massa = " + massa);
-
                 PlanetaModel planeta = new PlanetaModel(nome, raio, massa);
                 planetas.add(planeta);
             }

@@ -80,9 +80,6 @@ public class PokemonController extends HelloController {
                 int numeroPokedex = rs.getInt("numeroPokedex");
                 String nome = rs.getString("nome");
                 String tipos = rs.getString("tipos");
-
-                System.out.println("Pokémon encontrado: Nome = " + nome + ", Número DEX = " + numeroPokedex + ", Tipos = " + tipos);
-
                 PokemonModel pokemon = new PokemonModel(numeroPokedex, nome, tipos);
                 pokemons.add(pokemon);
             }

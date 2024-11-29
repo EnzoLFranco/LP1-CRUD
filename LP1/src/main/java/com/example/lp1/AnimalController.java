@@ -84,9 +84,6 @@ public class AnimalController extends HelloController {
                 int id = rs.getInt("IDAnimal");
                 String nome = rs.getString("nome");
                 String especie = rs.getString("especie");
-
-                System.out.println("Animal encontrado: ID = " + id + ", Nome = " + nome + ", Espécie = " + especie);
-
                 AnimalModel animal = new AnimalModel(id, nome, especie);
                 animais.add(animal);
             }

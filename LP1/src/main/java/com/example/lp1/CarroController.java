@@ -81,9 +81,6 @@ public class CarroController extends HelloController {
                 String placa = rs.getString("placa");
                 String marca = rs.getString("marca");
                 String modelo = rs.getString("modelo");
-
-                System.out.println("Carro encontrado: ID = " + placa + ", Marca = " + marca + ", Modelo = " + modelo);
-
                 CarroModel carro = new CarroModel(placa, marca, modelo);
                 carros.add(carro);
             }

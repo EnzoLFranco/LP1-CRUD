@@ -82,9 +82,6 @@ public class AparelhoController extends HelloController {
                 int numeroSerie = rs.getInt("numeroSerie");
                 String marca = rs.getString("marca");
                 String tipo = rs.getString("tipo");
-
-                System.out.println("Aparelho encontrado: ID = " + numeroSerie + ", Marca = " + marca + ", Tipo = " + tipo);
-
                 AparelhoModel aparelho = new AparelhoModel(numeroSerie, marca, tipo);
                 aparelhos.add(aparelho);
             }

@@ -83,9 +83,6 @@ public class InstrumentoController extends HelloController {
                 int IDInstrumento = rs.getInt("IDInstrumento");
                 String nome = rs.getString("nome");
                 int numeroCordas = rs.getInt("numeroCordas");
-
-                System.out.println("Instrumento encontrado: ID = " + IDInstrumento + ", Nome = " + nome + ", Cordas = " + numeroCordas);
-
                 InstrumentoModel instrumento = new InstrumentoModel(IDInstrumento, nome, numeroCordas);
                 instrumentos.add(instrumento);
             }

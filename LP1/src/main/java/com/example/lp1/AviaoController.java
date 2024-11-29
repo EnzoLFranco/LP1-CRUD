@@ -79,9 +79,6 @@ public class AviaoController extends HelloController {
                 int numeroSerie = rs.getInt("numeroSerie");
                 String fabricante = rs.getString("fabricante");
                 String modelo = rs.getString("modelo");
-
-                System.out.println("Aviao encontrado: ID = " + numeroSerie + ", Fabricante = " + fabricante + ", Modelo = " + modelo);
-
                 AviaoModel aviao = new AviaoModel(numeroSerie, fabricante, modelo);
                 avioes.add(aviao);
             }
