@@ -7,6 +7,7 @@ module com.example.lp1 {
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
     requires java.sql;
+    requires mysql.connector.java;
 
     opens com.example.lp1 to javafx.fxml;
     opens com.example.lp1.models to javafx.base;
