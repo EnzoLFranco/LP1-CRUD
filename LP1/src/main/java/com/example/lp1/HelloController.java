@@ -115,6 +115,7 @@ public class HelloController {
     public void trocaCadastro(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(cssTelas);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
