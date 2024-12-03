@@ -8,8 +8,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -62,9 +64,22 @@ public class AnimalController extends HelloController {
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         especieColumn.setCellValueFactory(new PropertyValueFactory<>("especie"));
 
+        tableView.setEditable(true);
+        nomeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        especieColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        nomeColumn.setOnEditCommit(event -> {
+            AnimalModel animal = event.getRowValue();
+            animal.setNome(event.getNewValue());
+        });
+
+        especieColumn.setOnEditCommit(event -> {
+            AnimalModel animal = event.getRowValue();
+            animal.setEspecie(event.getNewValue());
+        });
+
         carregarTabela();
     }
-
 
     private void carregarTabela() {
         List<AnimalModel> animais = getAnimaisDoBanco();
@@ -95,17 +110,44 @@ public class AnimalController extends HelloController {
         return animais;
     }
 
-    public void andar(ActionEvent event){
+    public void salvarAlteracoes(ActionEvent event) {
+        List<AnimalModel> animais = tableView.getItems();
+
+        String sql = "UPDATE Animal SET nome = ?, especie = ? WHERE IDAnimal = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            for (AnimalModel animal : animais) {
+                stmt.setString(1, animal.getNome());
+                stmt.setString(2, animal.getEspecie());
+                stmt.setInt(3, animal.getIDAnimal());
+                stmt.executeUpdate();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            info.setText("Erro ao salvar alterações!");
+        }
+
+        atualizarTabela();
+    }
+
+    private void atualizarTabela() {
+        tableView.getItems().clear();
+        tableView.getItems().addAll(getAnimaisDoBanco());
+    }
+
+    public void andar(ActionEvent event) {
         nome = nomeInput.getText();
         int distancia = Integer.parseInt(distaciaInput.getText());
         info.setText(nome + " andou " + distancia + " metros.");
     }
-    public void comer(ActionEvent event){
+    public void comer(ActionEvent event) {
         nome = nomeInput.getText();
         String comida = racaoInput.getText();
         info.setText(nome + " comeu " + comida + "!");
     }
-    public void dormir(ActionEvent event){
+    public void dormir(ActionEvent event) {
         nome = nomeInput.getText();
         info.setText(nome + " está dormindo!");
     }
