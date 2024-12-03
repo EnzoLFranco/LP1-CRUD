@@ -60,5 +60,10 @@
             <TableColumn fx:id="especieColumn" prefWidth="166.0" text="Espécie" />
         </columns>
       </TableView>
+      <Button fx:id="button1" layoutX="524.0" layoutY="327.0" mnemonicParsing="false" onAction="#salvarAlteracoes" prefHeight="30.0" prefWidth="76.0" text="Atualizar" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
