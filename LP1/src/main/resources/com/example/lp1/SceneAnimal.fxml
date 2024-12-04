@@ -14,7 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lp1.AnimalController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TAN" height="198.0" layoutX="-6.0" layoutY="228.0" stroke="WHITE" strokeType="INSIDE" width="612.0" />
-      <Button fx:id="button" layoutX="524.0" layoutY="371.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
+      <Button fx:id="button" layoutX="500.0" layoutY="364.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
          <font>
             <Font size="14.0" />
          </font>
@@ -53,14 +53,19 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="45.0" layoutY="227.0" prefHeight="200.0" prefWidth="472.0">
+      <TableView fx:id="tableView" layoutX="-2.0" layoutY="228.0" prefHeight="200.0" prefWidth="472.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="139.0" text="ID" />
           <TableColumn fx:id="nomeColumn" prefWidth="166.0" text="Nome" />
             <TableColumn fx:id="especieColumn" prefWidth="166.0" text="Espécie" />
         </columns>
       </TableView>
-      <Button fx:id="button1" layoutX="524.0" layoutY="327.0" mnemonicParsing="false" onAction="#salvarAlteracoes" prefHeight="30.0" prefWidth="76.0" text="Atualizar" textOverrun="CLIP">
+      <Button fx:id="button" layoutX="485.0" layoutY="312.0" mnemonicParsing="false" onAction="#salvarAlteracoes" prefHeight="30.0" prefWidth="106.0" text="Atualizar" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="button" layoutX="485.0" layoutY="261.0" mnemonicParsing="false" onAction="#excluirAnimal" prefHeight="30.0" prefWidth="106.0" text="Excluir" textOverrun="CLIP">
          <font>
             <Font size="14.0" />
          </font>
