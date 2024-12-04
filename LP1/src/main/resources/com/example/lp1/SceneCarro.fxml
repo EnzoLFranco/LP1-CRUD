@@ -14,7 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lp1.CarroController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TAN" height="198.0" layoutX="-6.0" layoutY="241.0" stroke="WHITE" strokeType="INSIDE" width="612.0" />
-      <Button fx:id="button" layoutX="524.0" layoutY="371.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
+      <Button fx:id="button" layoutX="490.0" layoutY="371.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
          <font>
             <Font size="14.0" />
          </font>
@@ -47,12 +47,22 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="63.0" layoutY="247.0" prefHeight="191.0" prefWidth="427.0">
+      <TableView fx:id="tableView" layoutY="245.0" prefHeight="191.0" prefWidth="427.0">
         <columns>
           <TableColumn fx:id="placaColumn" prefWidth="126.0" text="Placa" />
           <TableColumn fx:id="marcaColumn" prefWidth="147.0" text="Marca" />
             <TableColumn fx:id="modeloColumn" prefWidth="153.0" text="Modelo" />
         </columns>
       </TableView>
+      <Button fx:id="button" layoutX="475.0" layoutY="280.0" mnemonicParsing="false" onAction="#deletarCarro" prefHeight="30.0" prefWidth="106.0" text="Excluir" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="button" layoutX="475.0" layoutY="325.0" mnemonicParsing="false" onAction="#atualizarCarro" prefHeight="30.0" prefWidth="106.0" text="Atualizar" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
