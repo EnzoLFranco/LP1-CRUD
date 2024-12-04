@@ -14,7 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lp1.AviaoController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TAN" height="198.0" layoutX="-7.0" layoutY="235.0" stroke="WHITE" strokeType="INSIDE" width="612.0" />
-      <Button fx:id="button" layoutX="524.0" layoutY="371.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
+      <Button fx:id="button" layoutX="510.0" layoutY="371.0" mnemonicParsing="false" onAction="#Exit" prefHeight="30.0" prefWidth="76.0" text="Sair" textOverrun="CLIP">
          <font>
             <Font size="14.0" />
          </font>
@@ -41,12 +41,28 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="69.0" layoutY="234.0" prefHeight="200.0" prefWidth="454.0">
+      <TableView fx:id="tableView" layoutY="234.0" prefHeight="200.0" prefWidth="454.0">
         <columns>
           <TableColumn fx:id="numSerieColumn" prefWidth="132.0" text="NumeroSerie" />
           <TableColumn fx:id="fabricanteColumn" prefWidth="169.0" text="Fabricante" />
             <TableColumn fx:id="modeloColumn" prefWidth="152.0" text="Modelo" />
         </columns>
       </TableView>
+      <Button fx:id="button" layoutX="495.0" layoutY="276.0" mnemonicParsing="false" onAction="#excluirAviao" prefHeight="30.0" prefWidth="106.0" text="Excluir" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="button" layoutX="495.0" layoutY="319.0" mnemonicParsing="false" onAction="#atualizarAviao" prefHeight="30.0" prefWidth="106.0" text="Atualizar" textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="fabricanteInput" layoutX="304.0" layoutY="175.0" prefHeight="25.0" prefWidth="183.0" promptText="Fabricante" />
+      <Text layoutX="167.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fabricante do avião:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
