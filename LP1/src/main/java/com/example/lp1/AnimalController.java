@@ -3,10 +3,7 @@ package com.example.lp1;
 import com.example.lp1.helpers.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
@@ -19,10 +16,6 @@ import java.util.List;
 import com.example.lp1.models.AnimalModel;
 
 public class AnimalController extends HelloController {
-    private int IDAnimal;
-    private String nome;
-    private String especie;
-
     @FXML
     private Label info;
     @FXML
@@ -40,24 +33,7 @@ public class AnimalController extends HelloController {
     @FXML
     private TableColumn<AnimalModel, String> especieColumn;
 
-    public int getIDAnimal() {
-        return IDAnimal;
-    }
-    public void setIDAnimal(int ID) {
-        this.IDAnimal = ID;
-    }
-    public String getEspecie() {
-        return especie;
-    }
-    public void setEspecie(String espc) {
-        this.especie = espc;
-    }
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nm) {
-        this.nome = nm;
-    }
+    private AnimalModel selectedAnimal;
 
     public void initialize() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("IDAnimal"));
@@ -68,14 +44,13 @@ public class AnimalController extends HelloController {
         nomeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         especieColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        nomeColumn.setOnEditCommit(event -> {
-            AnimalModel animal = event.getRowValue();
-            animal.setNome(event.getNewValue());
-        });
-
-        especieColumn.setOnEditCommit(event -> {
-            AnimalModel animal = event.getRowValue();
-            animal.setEspecie(event.getNewValue());
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                selectedAnimal = newSelection;
+                nomeInput.setText(selectedAnimal.getNome());
+                racaoInput.setText("");
+                distaciaInput.setText("");
+            }
         });
 
         carregarTabela();
@@ -111,44 +86,76 @@ public class AnimalController extends HelloController {
     }
 
     public void salvarAlteracoes(ActionEvent event) {
-        List<AnimalModel> animais = tableView.getItems();
+        if (selectedAnimal == null) {
+            info.setText("Selecione um animal para atualizar.");
+            return;
+        }
+
+        String novoNome = nomeInput.getText();
+        String novaEspecie = selectedAnimal.getEspecie();
 
         String sql = "UPDATE Animal SET nome = ?, especie = ? WHERE IDAnimal = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            for (AnimalModel animal : animais) {
-                stmt.setString(1, animal.getNome());
-                stmt.setString(2, animal.getEspecie());
-                stmt.setInt(3, animal.getIDAnimal());
-                stmt.executeUpdate();
-            }
+            stmt.setString(1, novoNome);
+            stmt.setString(2, novaEspecie);
+            stmt.setInt(3, selectedAnimal.getIDAnimal());
+            stmt.executeUpdate();
 
+            selectedAnimal.setNome(novoNome);
+            atualizarTabela();
+
+            info.setText("Animal atualizado com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();
-            info.setText("Erro ao salvar alterações!");
+            info.setText("Erro ao atualizar animal.");
         }
-
-        atualizarTabela();
     }
 
+    @FXML
+    private void excluirAnimal(ActionEvent event) {
+        AnimalModel selectedAnimal = tableView.getSelectionModel().getSelectedItem();
+        if (selectedAnimal == null) {
+            info.setText("Selecione um animal para excluir.");
+            return;
+        }
+
+        String sql = "DELETE FROM Animal WHERE IDAnimal = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, selectedAnimal.getIDAnimal());
+            stmt.executeUpdate();
+
+            tableView.getItems().remove(selectedAnimal);
+
+            info.setText("Animal excluído com sucesso!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            info.setText("Erro ao excluir animal.");
+        }
+    }
+
+
     private void atualizarTabela() {
-        tableView.getItems().clear();
-        tableView.getItems().addAll(getAnimaisDoBanco());
+        tableView.refresh();
     }
 
     public void andar(ActionEvent event) {
-        nome = nomeInput.getText();
+        String nome = nomeInput.getText();
         int distancia = Integer.parseInt(distaciaInput.getText());
         info.setText(nome + " andou " + distancia + " metros.");
     }
+
     public void comer(ActionEvent event) {
-        nome = nomeInput.getText();
+        String nome = nomeInput.getText();
         String comida = racaoInput.getText();
         info.setText(nome + " comeu " + comida + "!");
     }
+
     public void dormir(ActionEvent event) {
-        nome = nomeInput.getText();
+        String nome = nomeInput.getText();
         info.setText(nome + " está dormindo!");
     }
 }
