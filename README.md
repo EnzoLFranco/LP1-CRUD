@@ -12,8 +12,8 @@ Este projeto é uma aplicação JavaFX para gerenciar um cadastro de diversos ob
 ## Funcionalidades
 
 - Cadastro de animais: Permite adicionar novos objetos ao banco de dados.✅
-- Atualização de dados: Permite editar as informações de um objeto já cadastrado.❌
-- Exclusão de animais: Permite remover um objeto do banco de dados.❌
+- Atualização de dados: Permite editar as informações de um objeto já cadastrado.✅
+- Exclusão de animais: Permite remover um objeto do banco de dados.✅
 - Exibição de dados: Mostra os dados dos objetos cadastrados na interface gráfica.✅
 
 ## Símbolos
